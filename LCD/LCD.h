@@ -1,7 +1,7 @@
 #ifndef LCD_H_
 #define LCD_H_
 
-#include "tm4c123gh6pm.h"
+#include "../tm4c123gh6pm.h"
 #include "stdint.h"
 #include "string.h"
 // #include "systick.h" implement the delay here 
