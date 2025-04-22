@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-
+typedef unsigned char uint8;
 #define NMEA_BUF_SIZE 128
 
 float currLat, currLon; // global variables to hold the current coordinates
@@ -20,7 +20,7 @@ void Get_GPS_Coordinates(void) {
 
 
     char *token;          // pointer to hold the tokenized string
-    int   index = 0;      // index of word in string
+    uint8   index = 0;      // index of word in string
 
     // buffers to hold latitude and longitude in string format
     char lat_str[16] = {0}, lon_str[16] = {0};
