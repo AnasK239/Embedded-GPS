@@ -30,15 +30,17 @@ char UART2_ReadChar(void) {
 
 void UART2_ReadString(char *line, uint8_t length) {
     char c;
-    
-    for (uint8_t i = 0; i < length-1; i++)
+    uint8_t i;
+
+    for (i=0; i < length-1; i++)
     {
         c = UART2_ReadChar();
         if (c == '\r' || c == '\n') { // Stop on return/newline
-            line[i] = '\0';
             break;
         }
         line[i] = c; // Store the character
     }
+    
+    line[i] = '\0'; // Null-terminate the string
 }
 
