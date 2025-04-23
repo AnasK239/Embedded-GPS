@@ -5,7 +5,8 @@
 
 float currLat, currLon; // global variables to hold the current coordinates
 
-void Get_GPS_Coordinates(void) {
+// returns -1 if the coordinates passed by gps are invalid
+uint8_t Get_GPS_Coordinates(void) {
 
     char message[NMEA_BUF_SIZE]; // buffer to hold the NMEA message
 
@@ -34,6 +35,8 @@ void Get_GPS_Coordinates(void) {
     while (token) {
         switch (index) {
             // We only care about the following indices because the latitude and longitude with their directions are always here
+            case VALID_INDEX:  if(token[0] != 'A') return -1; // check if the string is valid
+                                break;
 
             case LAT_INDEX :  strncpy(lat_str, token, sizeof(lat_str)-1); break;
 
@@ -51,6 +54,8 @@ void Get_GPS_Coordinates(void) {
     // convert the string values to decimal and save to my global variables
     currLat = NMEA_to_decimal(lat_str, lat_dir);
     currLon = NMEA_to_decimal(lon_str, lon_dir);
+    
+    return 0; 
 }
 
 

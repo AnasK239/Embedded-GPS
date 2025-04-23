@@ -10,12 +10,12 @@
 #define M_PI 3.14159265358979323846
 #define Proximity 10                                                    // how close am i to the landmark before displaying its name  (Meters)
 #define EARTH_RADIUS_M         6371000.0
-
+#define VALID_INDEX 2
 
 #include "stdio.h"
 #include "stdint.h"
 
-void Get_GPS_Coordinates(void);                                         // returns decimal coordinates in the global variable currLat/currLon
+uint8_t Get_GPS_Coordinates(void);                                         // returns decimal coordinates in the global variable currLat/currLon
 float NMEA_to_decimal (const char *coordinate_str, char direction);
 
 void Display_Location(void);                                            // displays the name of the nearest landmark to the current location on the LCD
