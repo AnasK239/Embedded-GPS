@@ -1,8 +1,8 @@
 #include "GPS.h"
 #include "LANDMARKS.h"
-void Display_Location(void) {
 
-    
+
+void Display_Location(double currLat, double currLon) {
 
     // find nearest landmark to my current location
     double bestDist = 1e9;
