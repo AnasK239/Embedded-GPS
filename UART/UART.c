@@ -8,15 +8,14 @@ void UART_Init(){
     while (GET_BIT(SYSCTL_PRGPIO_R, GPIO_D) == 0); // Wait for GPIOD to be ready
 
     CLR_BIT(UART2_CTL_R, 0); // Disable UART2 for configuration
-
     UART2_IBRD_R = 104; // Set integer baud rate divisor for 9600 baud
     UART2_FBRD_R = 11; // Set fractional baud rate divisor for 9600 baud
-    SET(UART2_LCRH_R, Data_Shape); // 8 data bits, no parity, 1 stop bit
+    SET(UART2_LCRH_R, Input_Shape); // 8 data bits, no parity, 1 stop bit
     SET(UART2_CTL_R, 0x301); // Enable UART2, TXE, RXE
 
     SET(GPIO_PORTD_AFSEL_R, Pin_6_7); // Enable alternate function for PD6 and PD7
     SET(GPIO_PORTD_DEN_R, Pin_6_7); // Enable digital function for PD6 and PD7
-    CLR(GPIO_PORTD_PCTL_R, 0x11000000); // Clear PD6 and PD7 PCTL bits
+    CLR(GPIO_PORTD_PCTL_R, 0xFF000000); // Clear PD6 and PD7 PCTL bits
     SET(GPIO_PORTD_PCTL_R, 0x11000000); // Set PD6 and PD7 to UART2
     CLR(GPIO_PORTD_AMSEL_R, Pin_6_7); // Disable analog function for PD6 and PD7
     
@@ -41,6 +40,6 @@ void UART2_ReadString(char *line, uint8_t length) {
         line[i] = c; // Store the character
     }
     
-    line[i] = '\0'; // Null-terminate the string
+    line[i] = '\0';
 }
 

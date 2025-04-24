@@ -1,9 +1,5 @@
-#include <stdio.h>
-#include <string.h>
 #include "GPS.h"
 
-
-float currLat, currLon; // global variables to hold the current coordinates
 
 // returns -1 if the coordinates passed by gps are invalid
 uint8_t Get_GPS_Coordinates(void) {

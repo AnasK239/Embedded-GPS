@@ -1,8 +1,7 @@
 #include "GPS.h"
 #include "LANDMARKS.h"
 void Display_Location(void) {
-    
-    double currLat, currLon;   // Given as global variables from GPS.c
+
     
 
     // find nearest landmark to my current location
