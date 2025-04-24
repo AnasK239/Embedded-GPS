@@ -12,11 +12,14 @@
 #define EARTH_RADIUS_M         6371000.0
 #define VALID_INDEX 2
 
+double currLat, currLon; // global variables to hold the current coordinates
+
 #include "stdio.h"
 #include "stdint.h"
+#include <string.h>
 
 uint8_t Get_GPS_Coordinates(void);                                         // returns decimal coordinates in the global variable currLat/currLon
-float NMEA_to_decimal (const char *coordinate_str, char direction);
+float NMEA_to_decimal (const char *coordinate_str);
 
 void Display_Location(void);                                            // displays the name of the nearest landmark to the current location on the LCD
 double deg2rad(double d);
