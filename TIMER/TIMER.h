@@ -9,6 +9,7 @@
 #define Max_reload 0x00FFFFFF
 #define Control_shape 0x05
 #define ms_delay 80000
+#define us_delay 80
 
 
 void SysTick_Init(void);
