@@ -146,9 +146,9 @@ void Lcd_data(unsigned char data)
     GPIO_PORTD_DATA_R &= ~(RW_ON); 
     Printdata(data);
     GPIO_PORTD_DATA_R |= EN_ON; 
-    SysTick_Wait1ms(1); // delay remoce it when delay of timer is implemented
+    SysTick_Wait1us(10); // delay remoce it when delay of timer is implemented
     GPIO_PORTD_DATA_R &= ~(EN_ON); 
-    SysTick_Wait1ms(1); // delay remoce it when delay of timer is implemented
+    SysTick_Wait1us(10); // delay remoce it when delay of timer is implemented
 }
 
 void Lcd_command(unsigned char command)
@@ -157,9 +157,9 @@ void Lcd_command(unsigned char command)
     GPIO_PORTD_DATA_R &= ~(RW_ON); 
     Printdata(command);
     GPIO_PORTD_DATA_R |= EN_ON; 
-    SysTick_Wait1ms(1); // delay remove it when delay of timer is implemented
+    SysTick_Wait1us(10); // delay remove it when delay of timer is implemented
     GPIO_PORTD_DATA_R &= ~(EN_ON); 
-   SysTick_Wait1ms(1); // delay remove it when delay of timer is implemented
+    SysTick_Wait1us(10); // delay remove it when delay of timer is implemented
 }
 
 void Lcd_string(char *str)

@@ -23,7 +23,7 @@ void UART_Init(){
 }
 
 char UART2_ReadChar(void) {
-    while (UART2_FR_R & UART_FR_RXFE);      // Wait until data is received
+    while ((UART2_FR_R & UART_FR_RXFE) != 0);      // Wait until data is received
     return (char)(UART2_DR_R & 0xFF);
 }
 
