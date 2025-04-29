@@ -17,11 +17,12 @@
 #include "stdio.h"
 #include "stdint.h"
 #include <string.h>
-
+#include <stdlib.h>
+#include <math.h>
 int8_t Get_GPS_Coordinates(double *currLat,double *currLon);                                         // returns decimal coordinates in the global variable currLat/currLon
 double NMEA_to_decimal (const char *coordinate_str);
 
-void Display_Location(void);                                            // displays the name of the nearest landmark to the current location on the LCD
+void Display_Location(double currLat, double currLon);                                            // displays the name of the nearest landmark to the current location on the LCD
 double deg2rad(double d);
 double haversine(double lat1, double lon1, double lat2, double lon2);   // returns the distance between two points on the earth in meters
 
