@@ -1,4 +1,4 @@
-#include "LCD/LCD.h"
+#include "LCD.h"
 
 /*
     d0=a7
