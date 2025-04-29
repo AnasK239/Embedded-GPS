@@ -3,7 +3,7 @@
 #define NUM_LANDMARKS 18
 
 typedef struct {
-    const char *name;
+    char *name;
     double lat, lon;
 } Landmark;
 

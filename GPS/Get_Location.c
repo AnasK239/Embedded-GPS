@@ -1,6 +1,6 @@
 #include "GPS.h"
-#include "LANDMARKS.h"
-
+#include "../LANDMARKS.h"
+#include "../LCD/LCD.h"
 
 void Display_Location(double currLat, double currLon) {
 
@@ -18,9 +18,8 @@ void Display_Location(double currLat, double currLon) {
     }
 
     // display if in close proximity
-    // TODO : Change this to output on the LCD
     if (choice >= 0 && bestDist <= Proximity) {
-        printf(landmarks[choice].name);
+				Lcd_string(landmarks[choice].name);
     } else {
         printf("------------------");  
     }

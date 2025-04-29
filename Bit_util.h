@@ -1,3 +1,6 @@
+#ifndef BIT_UTIL_H
+#define BIT_UTIL_H
+
 #define SET(reg, val) reg |= val
 
 #define CLR(reg, val) reg &= ~val
@@ -7,3 +10,5 @@
 #define GET_BIT(reg, bit) ((reg >> bit) & 1)
 
 #define CLR_BIT(reg, bit) reg &= ~(1 << bit)
+
+#endif
