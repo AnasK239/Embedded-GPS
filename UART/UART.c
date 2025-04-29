@@ -2,22 +2,22 @@
 
 
 void UART_Init(){
-    SET_BIT(SYSCTL_RCGCUART_R, UART_2); // Enable UART2 clock
-    while (GET_BIT(SYSCTL_PRUART_R, UART_2) == 0); // Wait for UART2 to be ready
-    SET_BIT(SYSCTL_RCGCGPIO_R, GPIO_D); // Enable GPIOD clock
-    while (GET_BIT(SYSCTL_PRGPIO_R, GPIO_D) == 0); // Wait for GPIOD to be ready
+    SET_BIT(SYSCTL_RCGCUART_R, UART_2);
+    while (GET_BIT(SYSCTL_PRUART_R, UART_2) == 0);
+    SET_BIT(SYSCTL_RCGCGPIO_R, GPIO_D);
+    while (GET_BIT(SYSCTL_PRGPIO_R, GPIO_D) == 0);
 
-    CLR_BIT(UART2_CTL_R, 0); // Disable UART2 for configuration
-    UART2_IBRD_R = 104; // Set integer baud rate divisor for 9600 baud
-    UART2_FBRD_R = 11; // Set fractional baud rate divisor for 9600 baud
-    SET(UART2_LCRH_R, Input_Shape); // 8 data bits, no parity, 1 stop bit
-    SET(UART2_CTL_R, 0x301); // Enable UART2, TXE, RXE
+    CLR_BIT(UART2_CTL_R, 0); // Disable UART2
+    UART2_IBRD_R = int_baud;
+    UART2_FBRD_R = Float_baud;
+    SET(UART2_LCRH_R, Input_Shape);
+    SET(UART2_CTL_R, Control_Shape);
 
-    SET(GPIO_PORTD_AFSEL_R, Pin_6_7); // Enable alternate function for PD6 and PD7
-    SET(GPIO_PORTD_DEN_R, Pin_6_7); // Enable digital function for PD6 and PD7
-    CLR(GPIO_PORTD_PCTL_R, 0xFF000000); // Clear PD6 and PD7 PCTL bits
-    SET(GPIO_PORTD_PCTL_R, 0x11000000); // Set PD6 and PD7 to UART2
-    CLR(GPIO_PORTD_AMSEL_R, Pin_6_7); // Disable analog function for PD6 and PD7
+    SET(GPIO_PORTD_AFSEL_R, Functions_D6_D7);
+    SET(GPIO_PORTD_DEN_R, Functions_D6_D7);
+    CLR(GPIO_PORTD_PCTL_R, Clear_PCTL_D6_D7);
+    SET(GPIO_PORTD_PCTL_R, Set_PCTL_D6_D7);
+    CLR(GPIO_PORTD_AMSEL_R, Functions_D6_D7);
     
     SET(GPIO_PORTD_DIR_R, 0x80); // Set PD7 as output (TX) and PD6 as input (RX)
 }
