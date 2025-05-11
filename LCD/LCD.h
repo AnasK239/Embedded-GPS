@@ -4,7 +4,8 @@
 #include "../tm4c123gh6pm.h"
 #include "stdint.h"
 #include "string.h"
-#include "../Timer/Timer.h" 
+#include "../TIMER/TIMER.h"
+#include "../GPIO/GPIO.h"
 #include "stdio.h"
 
 
@@ -12,7 +13,6 @@ void Printdata(unsigned char data);
 void Lcd_command(unsigned char command);
 void Lcd_data(unsigned char data);
 void Lcd_string(char *str);
-void Lcd_ports_init(void);
 void Lcd_init(void);
 void Lcd_clear(void);
 

@@ -1,5 +1,28 @@
-// TODO: Implement main also don't forget to recall Get_GPS_Coordinates() if it returns -1 
+#include "../GPS/GPS.h"
+#include "../LCD/LCD.h" 
+#include "../TIMER/TIMER.h"
+#include "../GPIO/GPIO.h"
 
 
+void SystemInit(){};
 
-// Get_GPS_Coordinates(&var1, &var2); 
+int main(){
+    int8_t y;
+    double currLat = 0.0, currLon = 0.0;
+    SysTick_Init();
+    Lcd_init();
+    UART_Init();
+
+    while(1){
+
+        do{
+        y= Get_GPS_Coordinates(&currLat , &currLon);
+        } while(y == -2);
+
+        Display_Location(currLat,currLon);
+        SysTick_Wait1ms(1000);
+        Lcd_clear();
+    }
+
+    return 0;
+}
