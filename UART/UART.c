@@ -6,20 +6,12 @@ void UART_Init(){
     while (GET_BIT(SYSCTL_PRUART_R, UART_2) == 0);
     SET_BIT(SYSCTL_RCGCGPIO_R, GPIO_D);
     while (GET_BIT(SYSCTL_PRGPIO_R, GPIO_D) == 0);
-
     CLR_BIT(UART2_CTL_R, 0); // Disable UART2
     UART2_IBRD_R = int_baud;
     UART2_FBRD_R = Float_baud;
     SET(UART2_LCRH_R, Input_Shape);
     SET(UART2_CTL_R, Control_Shape);
-
-    SET(GPIO_PORTD_AFSEL_R, Functions_D6_D7);
-    SET(GPIO_PORTD_DEN_R, Functions_D6_D7);
-    CLR(GPIO_PORTD_PCTL_R, Clear_PCTL_D6_D7);
-    SET(GPIO_PORTD_PCTL_R, Set_PCTL_D6_D7);
-    CLR(GPIO_PORTD_AMSEL_R, Functions_D6_D7);
-    
-    SET(GPIO_PORTD_DIR_R, 0x80); // Set PD7 as output (TX) and PD6 as input (RX)
+    UART_GPIO_INIT();
 }
 
 char UART2_ReadChar(void) {
@@ -42,4 +34,3 @@ void UART2_ReadString(char *line, uint8_t length) {
     
     line[i] = '\0';
 }
-
