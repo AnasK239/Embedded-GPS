@@ -3,7 +3,7 @@
 
 #include "../../SERVICES/tm4c123gh6pm.h"
 #include "../../SERVICES/Bit_util.h"
-#include "../MCAL/GPIO.h"
+#include "GPIO.h"
 #include "stdio.h"
 #include "stdint.h"
 
