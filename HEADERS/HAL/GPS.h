@@ -13,8 +13,8 @@
 #define VALID_INDEX 2
 #define VALIDITY_ERROR -1
 
-#include "../UART/UART.h"
-#include "../LCD/LCD.h"
+#include "../MCAL/UART.h"
+#include "LCD.h"
 #include "stdio.h"
 #include "stdint.h"
 #include <string.h>
