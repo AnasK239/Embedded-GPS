@@ -1,4 +1,4 @@
-#include "GPS.h"
+#include "../../HEADERS/HAL/GPS.h"
 
 
 Landmark landmar[NUM_LANDMARKS] = {

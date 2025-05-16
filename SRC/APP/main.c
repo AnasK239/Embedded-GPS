@@ -1,7 +1,7 @@
-#include "../GPS/GPS.h"
-#include "../LCD/LCD.h" 
-#include "../TIMER/TIMER.h"
-#include "../GPIO/GPIO.h"
+#include "../../HEADERS/HAL/GPS.h"
+#include "../../HEADERS/HAL/LCD.h" 
+#include "../../HEADERS/MCAL/TIMER.h"
+#include "../../HEADERS/MCAL/GPIO.h"
 
 
 void SystemInit(){};

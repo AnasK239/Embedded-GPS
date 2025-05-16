@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "timer.h": "c",
+        "tm4c123gh6pm.h": "c",
+        "bit_util.h": "c",
+        "gpio.h": "c",
+        "gps.h": "c",
+        "lcd.h": "c"
+    }
+}

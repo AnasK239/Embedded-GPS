@@ -1,8 +1,8 @@
 #ifndef TIMER_H_
 #define TIMER_H_
 
-#include "../tm4c123gh6pm.h"
-#include "../Bit_util.h"
+#include "../../SERVICES/tm4c123gh6pm.h"
+#include "../../SERVICES/Bit_util.h"
 #include "stdio.h"
 #include "stdint.h"
 
