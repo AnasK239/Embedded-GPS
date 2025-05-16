@@ -6,6 +6,7 @@
 #include "string.h"
 #include "../MCAL/UART.h"
 #include "../MCAL/GPIO.h"
+#include "../MCAL/TIMER.h"
 #include "stdio.h"
 
 

@@ -114,7 +114,7 @@ void Lcd_string(char *str)
 {
     while(*str != '\0')
     {
-				unsigned char c = *str;
+        unsigned char c = *str;
         Lcd_data(c);
         str++;
     }
